@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #4e5d6c, #1c2025);
+  color: #fff;
+  font-size: 5rem;
+  font-family: 'Goudy Bookletter 1911', serif;
+}

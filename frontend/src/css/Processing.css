@@ -1,0 +1,33 @@
+@keyframes loadingAnimation0 {
+  0%, 100% {
+    transform: scaleX(0.5);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loadingAnimation1 {
+  0%, 100% {
+    transform: scaleX(0.3);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loadingAnimation2 {
+  0%, 100% {
+    transform: scaleX(0.4);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+.loading {
+  transform-origin: left;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}

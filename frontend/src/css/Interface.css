@@ -1,0 +1,7 @@
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-closed {
+  margin-left: 0;
+}
