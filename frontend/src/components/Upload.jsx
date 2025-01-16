@@ -107,7 +107,7 @@ const Upload = ({ setPage, setUploadComplete, uploadComplete }) => {
         if (apiResponse.data.success) {
           const fileId = apiResponse.data.fileId;
           setUploadComplete(uploadComplete + 1);
-          setPage("Conversation", fileId);
+          setPage("Conversation", fileId, fileUrl);
         } else {
           setError(apiResponse.data.message || "Processing failed.");
         }
