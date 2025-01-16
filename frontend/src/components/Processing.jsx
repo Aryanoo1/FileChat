@@ -25,7 +25,7 @@ export default function Processing(props) {
             marginBottom: "10px",
           }}
         >
-          Transcribing
+          Processing
         </h1>
         <p style={{ fontSize: "1rem", color: "#B9BBBE" }}>
           {!downloading ? "warming up cylinders" : "core cylinders engaged"}
