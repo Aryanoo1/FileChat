@@ -1,29 +1,29 @@
-# Project Title
+# File Chat
 
 ## Overview
-This project is a **full-stack application** designed to create a chattable interface for PDF documents. The system allows users to interact with PDF content as if they were chatting with a human assistant. Here's a breakdown of the tech stack:
+This project is a **full-stack application** designed to create a chattable interface for PDF and DOCX documents. The system allows users to interact with document content as if they were chatting with a human assistant. Here's a breakdown of the tech stack:
 
 ### Frontend
 - **Vite + React**: The frontend is built with Vite for fast development and React for building interactive UI components.
 
 ### Backend
 - **Node.js + Express**: The backend server manages API routes, handles user authentication, and serves the frontend.
-- **MongoDB**: Used as the database to store user data and metadata related to PDF processing.
+- **MongoDB**: Used as the database to store user data and metadata related to document processing.
 
 ### Language Model Backend
 - **FastAPI**: A lightweight Python web framework is used to deploy a language model backend.
-- **LangChain**: Powers the PDF-to-chat transformation by leveraging advanced language models.
-- **Sentence-Transformers**: A Hugging Face model is used to extract meaningful embeddings from the PDF content, enabling effective querying and conversational responses.
+- **LangChain**: Powers the document-to-chat transformation by leveraging advanced language models.
+- **Sentence-Transformers**: A Hugging Face model is used to extract meaningful embeddings from the document content, enabling effective querying and conversational responses.
 
 ## Features
-1. Upload PDFs and convert them into a conversational interface.
-2. Chat with the PDF content, retrieving contextually relevant information.
+1. Upload PDFs and DOCX files and convert them into a conversational interface.
+2. Chat with the document content, retrieving contextually relevant information.
 3. Real-time responses powered by LangChain and Sentence-Transformers.
 
 ## Architecture
 1. **Frontend**: React-based UI communicates with the backend server via REST APIs.
 2. **Backend Server**: Node.js Express handles frontend requests and communicates with MongoDB for data persistence.
-3. **Language Model Backend**: A FastAPI service manages PDF processing and generates chat responses using Sentence-Transformers.
+3. **Language Model Backend**: A FastAPI service manages document processing and generates chat responses using Sentence-Transformers.
 
 ## Getting Started
 
@@ -113,7 +113,7 @@ Ensure the backend server communicates with the FastAPI model backend and the fr
 
 ### Step 6: Run the Application
 1. Open your browser and navigate to the frontend (default: `http://localhost:5173`).
-2. Upload a PDF, and start interacting with the content through the chat interface.
+2. Upload a PDF or DOCX file, and start interacting with the content through the chat interface.
 
 ## Contributing
 Feel free to submit issues or pull requests to improve the project.
