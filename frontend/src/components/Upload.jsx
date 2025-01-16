@@ -5,7 +5,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-
+import mammoth from "mammoth";
 
 const Upload = ({ setPage, setUploadComplete, uploadComplete }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -46,19 +46,54 @@ const Upload = ({ setPage, setUploadComplete, uploadComplete }) => {
   };
 
   const processFile = (file) => {
-    const fileTypeRegex = new RegExp(
-      `(${acceptedFileExtensions.join("|")})$`,
-      "i"
-    );
+    const fileExtension = file?.name.split(".").pop().toLowerCase();
 
-    if (!fileTypeRegex.test(file?.name.split(".").pop())) {
+    if (!acceptedFileExtensions.includes(fileExtension)) {
       window.alert(
         `Only ${acceptedFileExtensions.join(", ")} files are allowed.`
       );
-    } else {
-      setSelectedFile(file);
-      setError("");
+      return;
     }
+
+    if (fileExtension === "docx") {
+      handleDocxFile(file);
+      return;
+    }
+
+    setSelectedFile(file);
+    setError("");
+  };
+
+  const handleDocxFile = (file) => {
+    const reader = new FileReader();
+
+    reader.onload = async (event) => {
+      try {
+        const arrayBuffer = event.target.result;
+
+        const result = await mammoth.extractRawText({ arrayBuffer });
+        const extractedText = result.value.trim();
+
+        if (!extractedText) {
+          window.alert(
+            "The Word file is empty. Please upload a non-empty file."
+          );
+          return;
+        }
+
+        setSelectedFile(file);
+        setError("");
+      } catch (error) {
+        console.error("Error processing the Word file:", error);
+        window.alert("Failed to read the Word file. Please try again.");
+      }
+    };
+
+    reader.onerror = () => {
+      window.alert("Error reading the Word file. Please try again.");
+    };
+
+    reader.readAsArrayBuffer(file);
   };
 
   const handleDragOver = (event) => {
