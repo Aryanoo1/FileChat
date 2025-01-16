@@ -172,7 +172,18 @@ const Sidebar = ({ handlePageChange, closeSidebar, uploadComplete }) => {
           {loading ? (
             <div className="text-center">Loading files...</div>
           ) : filteredFiles.length === 0 ? (
-            <div className="no-files-message text-center">No files found</div>
+            <div
+              className="no-files-message text-muted text-center"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                height: "100%",
+                fontWeight: "700",
+              }}
+            >
+              Start Uploading Files
+            </div>
           ) : (
             Object.entries(
               filteredFiles.reduce((groups, file) => {

@@ -4,11 +4,15 @@ import Processing from "./Processing";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { FiLogOut } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+
 
 const Upload = ({ setPage, setUploadComplete, uploadComplete }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const fileInputRef = useRef(null);
 

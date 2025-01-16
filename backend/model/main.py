@@ -15,6 +15,7 @@ from langchain.llms import HuggingFacePipeline
 import cloudinary
 import cloudinary.uploader
 from dotenv import load_dotenv
+import uvicorn
 
 app = FastAPI()
 
@@ -136,3 +137,6 @@ async def answer_query(payload: Payload):
         raise HTTPException(status_code=500, detail=f"Failed to fetch vector store chunks: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected server error: {str(e)}")
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
