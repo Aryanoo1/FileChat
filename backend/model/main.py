@@ -15,6 +15,7 @@ from langchain.llms import HuggingFacePipeline
 import cloudinary
 import cloudinary.uploader
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI()
